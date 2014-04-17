@@ -8,7 +8,7 @@
         <scene sceneID="Yo2-QS-YDt">
             <objects>
                 <viewController id="O0r-sB-FPh" customClass="IndexViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nsy-lX-3ja">
+                    <view key="view" contentMode="scaleToFill" id="nsy-lX-3ja" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -39,7 +39,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="lOl-2f-hC7" customClass="UIScrollView">
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" id="lOl-2f-hC7" customClass="UIScrollView">
                                 <rect key="frame" x="13" y="244" width="295" height="253"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -92,7 +92,7 @@
                         <outlet property="bannerView" destination="Vm3-s9-eB5" id="HXK-yl-o49"/>
                         <outlet property="checkInView" destination="qFZ-yL-f8J" id="4qq-sy-yyB"/>
                         <outlet property="indexTabBar" destination="c9Y-E2-9eS" id="P0Q-Ml-MSu"/>
-                        <outlet property="scrollView" destination="lOl-2f-hC7" id="iDG-UQ-rKb"/>
+                        <outlet property="scrollView" destination="nsy-lX-3ja" id="9se-fB-QMo"/>
                         <outlet property="searchText" destination="eEO-bj-0li" id="qQJ-f5-j4P"/>
                         <outlet property="vipView" destination="gEh-b2-QyN" id="Pqg-qy-j2y"/>
                     </connections>

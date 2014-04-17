@@ -64,10 +64,11 @@
     }];
     
     if (!IS_IPHONE5){
-        [[self scrollView] setFrame:CGRectMake(13, 244, 295, 200)];
-        [[self scrollView] setContentSize:CGSizeMake(295, 253)];
+        [[self scrollView] setFrame:CGRectMake(0, 0, 320, 480)];
+        [[self scrollView] setContentSize:CGSizeMake(320, 568)];
         [[self scrollView] setContentOffset:CGPointMake(0, 0)];
         [[self scrollView] setContentInset:UIEdgeInsetsMake(0 , 0, 0, 0)];
+        self.scrollView.bounces=FALSE;
     }
 }
 
