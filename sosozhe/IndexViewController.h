@@ -13,5 +13,9 @@
 @property (weak, nonatomic) IBOutlet UITabBarItem *indexTabBar;
 @property (weak, nonatomic) IBOutlet CustomTextField *searchText;
 @property (weak, nonatomic) IBOutlet UIView *bannerView;
+@property (weak, nonatomic) IBOutlet UIImageView *vipView;
+@property (weak, nonatomic) IBOutlet UIImageView *checkInView;
+@property (weak, nonatomic) IBOutlet UIImageView *addFriendView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end

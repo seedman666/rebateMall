@@ -85,6 +85,7 @@
 		03B51FC918FD7EA900F862E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B51FAB18FD7EA900F862E1 /* UIKit.framework */; };
 		03B51FD118FD7EA900F862E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03B51FCF18FD7EA900F862E1 /* InfoPlist.strings */; };
 		03B51FD318FD7EA900F862E1 /* sosozheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B51FD218FD7EA900F862E1 /* sosozheTests.m */; };
+		9AC91AF80AE74C3CA5A68D0A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1BBFC5D6C98494FB4997A06 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +167,7 @@
 		032D740F18FEDF9100FA8284 /* SGFocusImageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGFocusImageFrame.m; sourceTree = "<group>"; };
 		032D741018FEDF9100FA8284 /* SGFocusImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGFocusImageItem.h; sourceTree = "<group>"; };
 		032D741118FEDF9100FA8284 /* SGFocusImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGFocusImageItem.m; sourceTree = "<group>"; };
+		036DEC5619002F48003F0F45 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		03B51FA418FD7EA900F862E1 /* sosozhe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sosozhe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03B51FA718FD7EA900F862E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		03B51FA918FD7EA900F862E1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -185,6 +187,8 @@
 		03B51FCE18FD7EA900F862E1 /* sosozheTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sosozheTests-Info.plist"; sourceTree = "<group>"; };
 		03B51FD018FD7EA900F862E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		03B51FD218FD7EA900F862E1 /* sosozheTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sosozheTests.m; sourceTree = "<group>"; };
+		A50530DD1AFA4FC284870635 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		B1BBFC5D6C98494FB4997A06 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +199,7 @@
 				03B51FAA18FD7EA900F862E1 /* CoreGraphics.framework in Frameworks */,
 				03B51FAC18FD7EA900F862E1 /* UIKit.framework in Frameworks */,
 				03B51FA818FD7EA900F862E1 /* Foundation.framework in Frameworks */,
+				9AC91AF80AE74C3CA5A68D0A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +301,7 @@
 				03B51FCC18FD7EA900F862E1 /* sosozheTests */,
 				03B51FA618FD7EA900F862E1 /* Frameworks */,
 				03B51FA518FD7EA900F862E1 /* Products */,
+				A50530DD1AFA4FC284870635 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -315,6 +321,7 @@
 				03B51FA918FD7EA900F862E1 /* CoreGraphics.framework */,
 				03B51FAB18FD7EA900F862E1 /* UIKit.framework */,
 				03B51FC618FD7EA900F862E1 /* XCTest.framework */,
+				B1BBFC5D6C98494FB4997A06 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -334,6 +341,7 @@
 				032D740318FECA0D00FA8284 /* IndexViewController.m */,
 				032D740A18FEDC4000FA8284 /* CustomTextField.h */,
 				032D740B18FEDC4000FA8284 /* CustomTextField.m */,
+				036DEC5619002F48003F0F45 /* Header.h */,
 			);
 			path = sosozhe;
 			sourceTree = "<group>";
@@ -375,9 +383,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03B51FD618FD7EA900F862E1 /* Build configuration list for PBXNativeTarget "sosozhe" */;
 			buildPhases = (
+				80713901B8C440A3B9240815 /* Check Pods Manifest.lock */,
 				03B51FA018FD7EA900F862E1 /* Sources */,
 				03B51FA118FD7EA900F862E1 /* Frameworks */,
 				03B51FA218FD7EA900F862E1 /* Resources */,
+				FD1745AA7B1B468DA725D9CE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -520,6 +530,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		80713901B8C440A3B9240815 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FD1745AA7B1B468DA725D9CE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		03B51FA018FD7EA900F862E1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -653,6 +696,7 @@
 		};
 		03B51FD718FD7EA900F862E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A50530DD1AFA4FC284870635 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -666,6 +710,7 @@
 		};
 		03B51FD818FD7EA900F862E1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A50530DD1AFA4FC284870635 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

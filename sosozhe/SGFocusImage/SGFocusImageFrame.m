@@ -127,7 +127,7 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
 
 - (void)singleTapGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 {
-    NSLog(@"%s", __FUNCTION__);
+    //NSLog(@"%s", __FUNCTION__);
     NSArray *imageItems = objc_getAssociatedObject(self, (__bridge const void *)SG_FOCUS_ITEM_ASS_KEY);
     int page = (int)(_scrollView.contentOffset.x / _scrollView.frame.size.width);
     if (page > -1 && page < imageItems.count) {
@@ -141,7 +141,7 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
 
 - (void)moveToTargetPosition:(CGFloat)targetX
 {
-    NSLog(@"moveToTargetPosition : %f" , targetX);
+    //NSLog(@"moveToTargetPosition : %f" , targetX);
     if (targetX >= _scrollView.contentSize.width) {
         targetX = 0.0;
     }

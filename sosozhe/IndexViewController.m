@@ -9,6 +9,8 @@
 #import "IndexViewController.h"
 #import "SGFocusImageItem.h"
 #import "SGFocusImageFrame.h"
+#import <AFNetworking.h>
+#import "Header.h"
 
 @interface IndexViewController ()
 
@@ -21,7 +23,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        [[self searchText] setPlaceholder:@"adadss"];
     }
     return self;
 }
@@ -39,8 +40,48 @@
                                                              focusImageItems:item1, item2, item3,
                                      nil];
     [[self bannerView] addSubview:imageFrame];
+    
+    UITapGestureRecognizer *tapGesture1=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(vipClick:)];
+    UITapGestureRecognizer *tapGesture2=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(checkInClick:)];
+    UITapGestureRecognizer *tapGesture3=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(addFriendClick:)];
+    [[self vipView] addGestureRecognizer:tapGesture1];
+    [[self checkInView] addGestureRecognizer:tapGesture2];
+    [[self addFriendView] addGestureRecognizer:tapGesture3];
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+
+    NSDictionary *parameters = @{@"page": @"1", @"num" : @"9"};
+    [manager POST:@"http://api.sosozhe.com.cn/index.php?mod=ajax&act=malls" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSError *error;
+//        NSLog(@"JSON: %@", responseObject);
+//        NSDictionary *data2 = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
+        //NSLog(@"%@", [data2 objectForKey:@"title"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    
+    if (!IS_IPHONE5){
+        [[self scrollView] setFrame:CGRectMake(13, 244, 295, 200)];
+        [[self scrollView] setContentSize:CGSizeMake(295, 253)];
+        [[self scrollView] setContentOffset:CGPointMake(0, 0)];
+        [[self scrollView] setContentInset:UIEdgeInsetsMake(0 , 0, 0, 0)];
+    }
 }
 
+- (void)vipClick:(UITapGestureRecognizer *)gesture{
+    NSLog(@"%@", gesture.view);
+}
+
+- (void)checkInClick:(UITapGestureRecognizer *)gesture{
+    NSLog(@"%@", gesture.view);
+}
+
+- (void)addFriendClick:(UITapGestureRecognizer *)gesture{
+    NSLog(@"%@", gesture.view);
+}
 
 - (void)didReceiveMemoryWarning
 {
