@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *checkInView;
 @property (weak, nonatomic) IBOutlet UIImageView *addFriendView;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *hotStoreView;
 
 @end
