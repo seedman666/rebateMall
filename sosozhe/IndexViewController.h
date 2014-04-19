@@ -8,8 +8,11 @@
 
 #import "ViewController.h"
 #import "CustomTextField.h"
+#import "MBProgressHUD.h"
 
-@interface IndexViewController : ViewController
+@interface IndexViewController : ViewController<MBProgressHUDDelegate>{
+    MBProgressHUD *HUD;
+}
 @property (weak, nonatomic) IBOutlet UITabBarItem *indexTabBar;
 @property (weak, nonatomic) IBOutlet CustomTextField *searchText;
 @property (weak, nonatomic) IBOutlet UIView *bannerView;

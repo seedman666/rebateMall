@@ -11,6 +11,8 @@
 #import "SGFocusImageFrame.h"
 #import <AFNetworking.h>
 #import "Header.h"
+#import "MBProgressHUD.h"
+#import "BrandView.h"
 
 @interface IndexViewController ()
 
@@ -55,18 +57,27 @@
 
     NSDictionary *parameters = @{@"page": @"1", @"num" : @"9"};
     [manager POST:@"http://api.sosozhe.com.cn/index.php?mod=ajax&act=malls" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [HUD removeFromSuperview];
         NSArray *array=(NSArray *) responseObject;
         for (int i=0; i<[array count]; i=i+1) {
             NSDictionary *dict=[array objectAtIndex:i];
-            //NSLog(@"%@", dict);
             int j=(i/3)%3;
             
             NSString *imgUrl=[dict objectForKey:@"img"];
             NSString *title=[[dict objectForKey:@"title"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             NSString *fanRation=[dict objectForKey:@"fan"];
-            UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(9+100*(i%3), 29+76*(j%3), 77, 40)];
-            UILabel *titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(14+100*(i%3), 68+76*(j%3), 50, 25)];
-            UILabel *fanLabel=[[UILabel alloc] initWithFrame:CGRectMake(65+100*(i%3), 68+76*(j%3), 30, 25)];
+            NSString *url=[dict objectForKey:@"url"];
+            
+            BrandView *brandView=[[BrandView alloc] initWithFrame:CGRectMake(9+100*(i%3), 29+76*(j%3), 77, 65)];
+            brandView.url=url;
+            UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(brandViewClick:)];
+            [brandView addGestureRecognizer:tapGesture];
+            
+            
+            
+            UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 77, 40)];
+            UILabel *titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(5, 41, 50, 25)];
+            UILabel *fanLabel=[[UILabel alloc] initWithFrame:CGRectMake(60, 41, 30, 25)];
            
             UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imgUrl]]];
             [imageView setImage:image];
@@ -75,16 +86,17 @@
             [fanLabel setText:fanRation];
             [fanLabel setFont:[UIFont systemFontOfSize:10]];
             [fanLabel setTextColor:[UIColor orangeColor]];
-            [[self hotStoreView] addSubview:imageView];
-            [[self hotStoreView] addSubview:titleLabel];
-            [[self hotStoreView] addSubview:fanLabel];
             
-//            [self.imageView setImage:image];
+            [brandView addSubview:imageView];
+            [brandView addSubview:titleLabel];
+            [brandView addSubview:fanLabel];
             
+            [[self hotStoreView] addSubview:brandView];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        [HUD removeFromSuperview];
     }];
     
     if (!IS_IPHONE5){
@@ -98,6 +110,18 @@
 
 - (void)vipClick:(UITapGestureRecognizer *)gesture{
     NSLog(@"%@", gesture.view);
+    [self performSegueWithIdentifier:@"moreBrandWebView" sender:self];
+}
+
+-(void) brandViewClick:(UITapGestureRecognizer *) gesture{
+    [self performSegueWithIdentifier:@"moreBrandWebView" sender:self];
+    BrandView *view=(BrandView *)gesture.view;
+    NSString *url=view.url;
+    NSLog(@"1%@", url);
+    //NSDictionary *dicts = [NSDictionary dictionaryWithObjectsAndKeys:@"url",url, nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"webviewParamNotification" object:url];
+    
+    
 }
 
 - (void)checkInClick:(UITapGestureRecognizer *)gesture{
