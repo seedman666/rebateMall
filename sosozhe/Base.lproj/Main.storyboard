@@ -8,7 +8,7 @@
         <scene sceneID="9VG-Ug-9Lx">
             <objects>
                 <viewController id="FKV-r7-0Wn" customClass="MoreBrandViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WoO-yK-HaC">
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="WoO-yK-HaC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -18,7 +18,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_bg.png" id="pe9-j6-TlH">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入商品名称" minimumFontSize="17" id="dkc-7y-W6G" customClass="CustomTextField">
                                         <rect key="frame" x="10" y="6" width="300" height="30"/>
@@ -182,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJZ-7M-1eA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-457" y="266"/>
+            <point key="canvasLocation" x="-213" y="246"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Ufh-ue-nxO">
