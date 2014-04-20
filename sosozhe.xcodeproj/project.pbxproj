@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0327028D19027E880049827A /* MoreBrandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0327028C19027E880049827A /* MoreBrandViewController.m */; };
+		0327028D19027E880049827A /* BrandDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0327028C19027E880049827A /* BrandDetailViewController.m */; };
 		03270293190283150049827A /* BrandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03270292190283150049827A /* BrandView.m */; };
+		032857501903DF2A0094517B /* MoreBrandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0328574F1903DF2A0094517B /* MoreBrandViewController.m */; };
 		032D73C718FEC96000FA8284 /* add_friend.png in Resources */ = {isa = PBXBuildFile; fileRef = 032D738C18FEC95F00FA8284 /* add_friend.png */; };
 		032D73C818FEC96000FA8284 /* add_friend1.png in Resources */ = {isa = PBXBuildFile; fileRef = 032D738D18FEC95F00FA8284 /* add_friend1.png */; };
 		032D73C918FEC96000FA8284 /* add_friend2.png in Resources */ = {isa = PBXBuildFile; fileRef = 032D738E18FEC95F00FA8284 /* add_friend2.png */; };
@@ -102,10 +103,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0327028B19027E880049827A /* MoreBrandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreBrandViewController.h; sourceTree = "<group>"; };
-		0327028C19027E880049827A /* MoreBrandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreBrandViewController.m; sourceTree = "<group>"; };
+		0327028B19027E880049827A /* BrandDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandDetailViewController.h; sourceTree = "<group>"; };
+		0327028C19027E880049827A /* BrandDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandDetailViewController.m; sourceTree = "<group>"; };
 		03270291190283150049827A /* BrandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandView.h; sourceTree = "<group>"; };
 		03270292190283150049827A /* BrandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandView.m; sourceTree = "<group>"; };
+		0328574E1903DF2A0094517B /* MoreBrandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreBrandViewController.h; sourceTree = "<group>"; };
+		0328574F1903DF2A0094517B /* MoreBrandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreBrandViewController.m; sourceTree = "<group>"; };
 		032D738C18FEC95F00FA8284 /* add_friend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_friend.png; sourceTree = "<group>"; };
 		032D738D18FEC95F00FA8284 /* add_friend1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_friend1.png; sourceTree = "<group>"; };
 		032D738E18FEC95F00FA8284 /* add_friend2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_friend2.png; sourceTree = "<group>"; };
@@ -352,10 +355,12 @@
 				032D740A18FEDC4000FA8284 /* CustomTextField.h */,
 				032D740B18FEDC4000FA8284 /* CustomTextField.m */,
 				036DEC5619002F48003F0F45 /* Header.h */,
-				0327028B19027E880049827A /* MoreBrandViewController.h */,
-				0327028C19027E880049827A /* MoreBrandViewController.m */,
+				0327028B19027E880049827A /* BrandDetailViewController.h */,
+				0327028C19027E880049827A /* BrandDetailViewController.m */,
 				03270291190283150049827A /* BrandView.h */,
 				03270292190283150049827A /* BrandView.m */,
+				0328574E1903DF2A0094517B /* MoreBrandViewController.h */,
+				0328574F1903DF2A0094517B /* MoreBrandViewController.m */,
 			);
 			path = sosozhe;
 			sourceTree = "<group>";
@@ -591,8 +596,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				032857501903DF2A0094517B /* MoreBrandViewController.m in Sources */,
 				03270293190283150049827A /* BrandView.m in Sources */,
-				0327028D19027E880049827A /* MoreBrandViewController.m in Sources */,
+				0327028D19027E880049827A /* BrandDetailViewController.m in Sources */,
 				032D741218FEDF9200FA8284 /* SGFocusImageFrame.m in Sources */,
 				03B51FBE18FD7EA900F862E1 /* ViewController.m in Sources */,
 				032D741318FEDF9200FA8284 /* SGFocusImageItem.m in Sources */,

@@ -13,6 +13,7 @@
 #import "Header.h"
 #import "MBProgressHUD.h"
 #import "BrandView.h"
+#import "AppDelegate.h"
 
 @interface IndexViewController ()
 
@@ -55,7 +56,7 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
 
-    NSDictionary *parameters = @{@"page": @"1", @"num" : @"9"};
+    NSDictionary *parameters = @{@"page": @"1", @"num" : @"8"};
     [manager POST:@"http://api.sosozhe.com.cn/index.php?mod=ajax&act=malls" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [HUD removeFromSuperview];
         NSArray *array=(NSArray *) responseObject;
@@ -94,6 +95,16 @@
             [[self hotStoreView] addSubview:brandView];
         }
         
+        BrandView *brandView=[[BrandView alloc] initWithFrame:CGRectMake(9+100*2, 29+76*2, 77, 65)];
+        UILabel *titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(5, 41, 50, 25)];
+        [titleLabel setText:@"查看更多"];
+        [titleLabel setFont:[UIFont systemFontOfSize:10]];
+        [brandView addSubview:titleLabel];
+        UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(moreBrandViewClick:)];
+        [brandView addGestureRecognizer:tapGesture];
+        [[self hotStoreView] addSubview:brandView];
+        
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         [HUD removeFromSuperview];
@@ -110,18 +121,22 @@
 
 - (void)vipClick:(UITapGestureRecognizer *)gesture{
     NSLog(@"%@", gesture.view);
-    [self performSegueWithIdentifier:@"moreBrandWebView" sender:self];
+    [self performSegueWithIdentifier:@"brandDetailWebView" sender:self];
 }
 
 -(void) brandViewClick:(UITapGestureRecognizer *) gesture{
-    [self performSegueWithIdentifier:@"moreBrandWebView" sender:self];
+    [self performSegueWithIdentifier:@"brandDetailWebView" sender:self];
     BrandView *view=(BrandView *)gesture.view;
     NSString *url=view.url;
     NSLog(@"1%@", url);
     //NSDictionary *dicts = [NSDictionary dictionaryWithObjectsAndKeys:@"url",url, nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"webviewParamNotification" object:url];
     
-    
+}
+
+-(void) moreBrandViewClick:(UITapGestureRecognizer *) gesture{
+    AppDelegate *thisAppDelegate = [[UIApplication sharedApplication] delegate];
+    [(UITabBarController *)thisAppDelegate.window.rootViewController setSelectedIndex:2];
 }
 
 - (void)checkInClick:(UITapGestureRecognizer *)gesture{

@@ -4,6 +4,49 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
+        <!--More Brand View Controller - 商城返利-->
+        <scene sceneID="9VG-Ug-9Lx">
+            <objects>
+                <viewController id="FKV-r7-0Wn" customClass="MoreBrandViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WoO-yK-HaC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="Spv-2z-xbs">
+                                <rect key="frame" x="0.0" y="20" width="320" height="42"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_bg.png" id="pe9-j6-TlH">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入商品名称" minimumFontSize="17" id="dkc-7y-W6G" customClass="CustomTextField">
+                                        <rect key="frame" x="10" y="6" width="300" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="HZC-lo-ekm">
+                                <rect key="frame" x="0.0" y="62" width="320" height="457"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="商城返利" image="tab_mall_1_s.png" id="Wn1-xC-NXu"/>
+                    <connections>
+                        <outlet property="scrollView" destination="HZC-lo-ekm" id="uvs-vs-wPo"/>
+                        <outlet property="searchText" destination="dkc-7y-W6G" id="ETg-nc-rtT"/>
+                        <segue destination="r77-PQ-hw1" kind="modal" identifier="brandDetailWebView" id="hq4-jg-7z2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mXa-LU-qiI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-908" y="-530"/>
+        </scene>
         <!--Index View Controller - 首页-->
         <scene sceneID="Yo2-QS-YDt">
             <objects>
@@ -96,17 +139,17 @@
                         <outlet property="scrollView" destination="nsy-lX-3ja" id="9se-fB-QMo"/>
                         <outlet property="searchText" destination="eEO-bj-0li" id="qQJ-f5-j4P"/>
                         <outlet property="vipView" destination="gEh-b2-QyN" id="Pqg-qy-j2y"/>
-                        <segue destination="r77-PQ-hw1" kind="modal" identifier="moreBrandWebView" id="0MH-5d-iGQ"/>
+                        <segue destination="r77-PQ-hw1" kind="modal" identifier="brandDetailWebView" id="0MH-5d-iGQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iuq-FK-duS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-908" y="266"/>
+            <point key="canvasLocation" x="-920" y="266"/>
         </scene>
-        <!--More Brand View Controller-->
+        <!--Brand Detail View Controller-->
         <scene sceneID="YXk-mX-gEB">
             <objects>
-                <viewController id="r77-PQ-hw1" customClass="MoreBrandViewController" sceneMemberID="viewController">
+                <viewController id="r77-PQ-hw1" customClass="BrandDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YZH-Qx-XZN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -139,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJZ-7M-1eA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-545" y="266"/>
+            <point key="canvasLocation" x="-457" y="266"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Ufh-ue-nxO">
@@ -154,11 +197,12 @@
                     <connections>
                         <segue destination="O0r-sB-FPh" kind="relationship" relationship="viewControllers" id="6ao-xD-Vhg"/>
                         <segue destination="TL2-hw-e12" kind="relationship" relationship="viewControllers" id="jaC-5w-fKa"/>
+                        <segue destination="FKV-r7-0Wn" kind="relationship" relationship="viewControllers" id="ze4-fk-DAz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oRe-qb-yPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1442" y="591"/>
+            <point key="canvasLocation" x="-1462" y="579"/>
         </scene>
         <!--View Controller - 淘宝返利-->
         <scene sceneID="iRD-93-mff">
@@ -182,6 +226,7 @@
         <image name="logo.png" width="252" height="71"/>
         <image name="mall.png" width="1034" height="888"/>
         <image name="tab_index_1_s.png" width="30" height="30"/>
+        <image name="tab_mall_1_s.png" width="30" height="30"/>
         <image name="tab_tao_1_s.png" width="30" height="30"/>
         <image name="top_bg.png" width="3" height="186"/>
         <image name="vip.png" width="112" height="112"/>
@@ -191,4 +236,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="hq4-jg-7z2"/>
+    </inferredMetricsTieBreakers>
 </document>
