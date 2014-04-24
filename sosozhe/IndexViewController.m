@@ -52,13 +52,43 @@
     [[self addFriendView] addGestureRecognizer:tapGesture3];
     
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [self requestHotBrand];
+    
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
 
-    NSDictionary *parameters = @{@"page": @"1", @"num" : @"8"};
-    [manager POST:@"http://api.sosozhe.com.cn/index.php?mod=ajax&act=malls" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [HUD removeFromSuperview];
+//    NSDictionary *parameters = @{@"page": @"1", @"num" : @"8"};
+//    [manager POST:@"http://api.sosozhe.com.cn/index.php?mod=ajax&act=malls" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        
+//        
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"Error: %@", error);
+//        [HUD removeFromSuperview];
+//    }];
+    
+    if (!IS_IPHONE5){
+        [[self scrollView] setFrame:CGRectMake(0, 0, 320, 480)];
+        [[self scrollView] setContentSize:CGSizeMake(320, 568)];
+        [[self scrollView] setContentOffset:CGPointMake(0, 0)];
+        [[self scrollView] setContentInset:UIEdgeInsetsMake(0 , 0, 0, 0)];
+        self.scrollView.bounces=FALSE;
+    }
+}
+
+-(void) requestHotBrand{
+    NSURL *url = [NSURL URLWithString:@"http://api.sosozhe.com.cn/"];
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:url];
+    NSDictionary *parameters = @{@"page": @"1", @"num" : @"8", @"mod" : @"ajax", @"act": @"malls"};
+    
+    [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
+    [client setDefaultHeader:@"Accept" value:@"application/json"];
+    [AFJSONRequestOperation addAcceptableContentTypes:[NSSet setWithObject:@"text/html"]];
+
+    [client postPath:@"index.php?mod=ajax&act=malls" parameters:parameters
+    success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@", responseObject);
         NSArray *array=(NSArray *) responseObject;
         for (int i=0; i<[array count]; i=i+1) {
             NSDictionary *dict=[array objectAtIndex:i];
@@ -79,7 +109,7 @@
             UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 77, 40)];
             UILabel *titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(5, 41, 50, 25)];
             UILabel *fanLabel=[[UILabel alloc] initWithFrame:CGRectMake(60, 41, 30, 25)];
-           
+            
             UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imgUrl]]];
             [imageView setImage:image];
             [titleLabel setText:title];
@@ -103,20 +133,11 @@
         UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(moreBrandViewClick:)];
         [brandView addGestureRecognizer:tapGesture];
         [[self hotStoreView] addSubview:brandView];
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-        [HUD removeFromSuperview];
-    }];
-    
-    if (!IS_IPHONE5){
-        [[self scrollView] setFrame:CGRectMake(0, 0, 320, 480)];
-        [[self scrollView] setContentSize:CGSizeMake(320, 568)];
-        [[self scrollView] setContentOffset:CGPointMake(0, 0)];
-        [[self scrollView] setContentInset:UIEdgeInsetsMake(0 , 0, 0, 0)];
-        self.scrollView.bounces=FALSE;
+
     }
+    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+    }];
 }
 
 - (void)vipClick:(UITapGestureRecognizer *)gesture{

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		031EFEA319055CC900A165C7 /* MyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 031EFEA219055CC900A165C7 /* MyAccountViewController.m */; };
 		0327028D19027E880049827A /* BrandDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0327028C19027E880049827A /* BrandDetailViewController.m */; };
 		03270293190283150049827A /* BrandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03270292190283150049827A /* BrandView.m */; };
 		032857501903DF2A0094517B /* MoreBrandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0328574F1903DF2A0094517B /* MoreBrandViewController.m */; };
@@ -103,6 +104,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		031EFEA119055CC900A165C7 /* MyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountViewController.h; sourceTree = "<group>"; };
+		031EFEA219055CC900A165C7 /* MyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountViewController.m; sourceTree = "<group>"; };
 		0327028B19027E880049827A /* BrandDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandDetailViewController.h; sourceTree = "<group>"; };
 		0327028C19027E880049827A /* BrandDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandDetailViewController.m; sourceTree = "<group>"; };
 		03270291190283150049827A /* BrandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandView.h; sourceTree = "<group>"; };
@@ -178,6 +181,7 @@
 		032D741018FEDF9100FA8284 /* SGFocusImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGFocusImageItem.h; sourceTree = "<group>"; };
 		032D741118FEDF9100FA8284 /* SGFocusImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGFocusImageItem.m; sourceTree = "<group>"; };
 		036DEC5619002F48003F0F45 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		037CF3E7190818B6007D1071 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03B51FA418FD7EA900F862E1 /* sosozhe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sosozhe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03B51FA718FD7EA900F862E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		03B51FA918FD7EA900F862E1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -361,6 +365,8 @@
 				03270292190283150049827A /* BrandView.m */,
 				0328574E1903DF2A0094517B /* MoreBrandViewController.h */,
 				0328574F1903DF2A0094517B /* MoreBrandViewController.m */,
+				031EFEA119055CC900A165C7 /* MyAccountViewController.h */,
+				031EFEA219055CC900A165C7 /* MyAccountViewController.m */,
 			);
 			path = sosozhe;
 			sourceTree = "<group>";
@@ -598,6 +604,7 @@
 			files = (
 				032857501903DF2A0094517B /* MoreBrandViewController.m in Sources */,
 				03270293190283150049827A /* BrandView.m in Sources */,
+				031EFEA319055CC900A165C7 /* MyAccountViewController.m in Sources */,
 				0327028D19027E880049827A /* BrandDetailViewController.m in Sources */,
 				032D741218FEDF9200FA8284 /* SGFocusImageFrame.m in Sources */,
 				03B51FBE18FD7EA900F862E1 /* ViewController.m in Sources */,
@@ -641,6 +648,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				03B51FBA18FD7EA900F862E1 /* Base */,
+				037CF3E7190818B6007D1071 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -735,6 +743,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sosozhe/sosozhe-Prefix.pch";
 				INFOPLIST_FILE = "sosozhe/sosozhe-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -749,6 +758,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sosozhe/sosozhe-Prefix.pch";
 				INFOPLIST_FILE = "sosozhe/sosozhe-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

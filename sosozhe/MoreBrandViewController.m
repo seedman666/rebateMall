@@ -31,52 +31,63 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     
-    NSDictionary *parameters = @{@"page": @"2", @"num" : @"9"};
-    [manager POST:@"http://api.sosozhe.com.cn/index.php?mod=ajax&act=malls" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSArray *array=(NSArray *) responseObject;
-        for (int i=0; i<[array count]; i=i+1) {
-            NSDictionary *dict=[array objectAtIndex:i];
-            int j=(i/3)%3;
-            
-            NSString *imgUrl=[dict objectForKey:@"img"];
-            NSString *title=[[dict objectForKey:@"title"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            NSString *fanRation=[dict objectForKey:@"fan"];
-            NSString *url=[dict objectForKey:@"url"];
-            
-            BrandView *brandView=[[BrandView alloc] initWithFrame:CGRectMake(9+100*(i%3), 29+76*(j%3), 77, 65)];
-            brandView.url=url;
-            UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(brandViewClick:)];
-            [brandView addGestureRecognizer:tapGesture];
-            
-            
-            
-            UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 77, 40)];
-            UILabel *titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(5, 41, 50, 25)];
-            UILabel *fanLabel=[[UILabel alloc] initWithFrame:CGRectMake(60, 41, 30, 25)];
-            
-            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imgUrl]]];
-            [imageView setImage:image];
-            [titleLabel setText:title];
-            [titleLabel setFont:[UIFont systemFontOfSize:10]];
-            [fanLabel setText:fanRation];
-            [fanLabel setFont:[UIFont systemFontOfSize:10]];
-            [fanLabel setTextColor:[UIColor orangeColor]];
-            
-            [brandView addSubview:imageView];
-            [brandView addSubview:titleLabel];
-            [brandView addSubview:fanLabel];
-            
-            [[self scrollView] addSubview:brandView];
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+    [self requestHotBrand];
 
+}
+
+-(void) requestHotBrand{
+    NSURL *url = [NSURL URLWithString:@"http://api.sosozhe.com.cn/"];
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:url];
+    NSDictionary *parameters = @{@"page": @"2", @"num" : @"9"};
+    
+    [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
+    [client setDefaultHeader:@"Accept" value:@"application/json"];
+    [AFJSONRequestOperation addAcceptableContentTypes:[NSSet setWithObject:@"text/html"]];
+    
+    [client postPath:@"index.php?mod=ajax&act=malls" parameters:parameters
+             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                 NSLog(@"%@", responseObject);
+                 NSArray *array=(NSArray *) responseObject;
+                 for (int i=0; i<[array count]; i=i+1) {
+                     NSDictionary *dict=[array objectAtIndex:i];
+                     int j=(i/3)%3;
+                     
+                     NSString *imgUrl=[dict objectForKey:@"img"];
+                     NSString *title=[[dict objectForKey:@"title"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                     NSString *fanRation=[dict objectForKey:@"fan"];
+                     NSString *url=[dict objectForKey:@"url"];
+                     
+                     BrandView *brandView=[[BrandView alloc] initWithFrame:CGRectMake(9+100*(i%3), 29+76*(j%3), 77, 65)];
+                     brandView.url=url;
+                     UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(brandViewClick:)];
+                     [brandView addGestureRecognizer:tapGesture];
+                     
+                     
+                     
+                     UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 77, 40)];
+                     UILabel *titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(5, 41, 50, 25)];
+                     UILabel *fanLabel=[[UILabel alloc] initWithFrame:CGRectMake(60, 41, 30, 25)];
+                     
+                     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imgUrl]]];
+                     [imageView setImage:image];
+                     [titleLabel setText:title];
+                     [titleLabel setFont:[UIFont systemFontOfSize:10]];
+                     [fanLabel setText:fanRation];
+                     [fanLabel setFont:[UIFont systemFontOfSize:10]];
+                     [fanLabel setTextColor:[UIColor orangeColor]];
+                     
+                     [brandView addSubview:imageView];
+                     [brandView addSubview:titleLabel];
+                     [brandView addSubview:fanLabel];
+                     
+                     [[self scrollView] addSubview:brandView];
+                 }
+                 
+             }
+             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 NSLog(@"%@", error);
+             }];
 }
 
 -(void) brandViewClick:(UITapGestureRecognizer *) gesture{
